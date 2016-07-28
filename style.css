@@ -1,0 +1,36 @@
+@font-face {
+    font-family: aweFont;
+    src: url(fonts/awefont.ttf);
+}
+
+img.activator {
+    padding: 15px;
+}
+
+div.carousel.initialized {
+    height: 500px;
+}
+
+h3.heading {
+    font-family: awefont;
+}
+
+h2.heading {
+    font-family: awefont;
+}
+
+.parallax-container {
+    height: 50%;
+}
+
+#logo {
+    padding-top: 10px;
+}
+
+i.material-icons {
+    color: #ff1744;
+}
+
+i.fa {
+    color: #ff1744;
+}
