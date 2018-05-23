@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sticker</title>
+    <style>
+        body {
+            display: block;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #sticker {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 30px;
+            width: 100vw;
+            background: white;
+            min-height: 100vh;
+            box-sizing: border-box;
+            /* For IE and modern versions of Chrome */
+            -moz-box-sizing: border-box;
+            /* For Firefox                          */
+            -webkit-box-sizing: border-box;
+            padding: 0%;
+            border: 0px;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDFl_sE1tP4200SJFuYpf2R6rExmYXtvKA",
+            authDomain: "stuff-sharer.firebaseapp.com",
+            databaseURL: "https://stuff-sharer.firebaseio.com",
+            projectId: "stuff-sharer",
+            storageBucket: "stuff-sharer.appspot.com",
+            messagingSenderId: "977001604233"
+        }
+
+        ;
+        firebase.initializeApp(config);
+    </script>
+
+</head>
+
+<body>
+    <textarea id="sticker" type="text"></textarea>
+    <script>
+        var messageRef = firebase.database().ref('/');
+        var update = function () {
+            firebase.database().ref('/message').update({
+                value: document.getElementById('sticker').value
+            })
+            console.log('asdasd');
+        }
+        messageRef.once('value', function (snapshot) {
+            document.getElementById('sticker').value = (snapshot.val().message.value);
+            document.getElementById('sticker').focus();
+            document.getElementById('sticker').addEventListener("change", update)
+            initializeApp();
+        });
+
+
+        function initializeApp() {
+            messageRef = firebase.database().ref('/');
+            messageRef.on('value', function (data_snapshot) {
+                document.getElementById('sticker').value = (data_snapshot.val().message.value);
+                document.getElementById('sticker').focus();
+
+            });
+        }
+    </script>
+</body>
+
+
+</html>
