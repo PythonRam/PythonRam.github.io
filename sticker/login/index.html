@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sticker</title>
+    <style>
+        body {
+            display: block;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #sticker {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 30px;
+            width: 100vw;
+            background: white;
+            min-height: 100vh;
+            box-sizing: border-box;
+            /* For IE and modern versions of Chrome */
+            -moz-box-sizing: border-box;
+            /* For Firefox                          */
+            -webkit-box-sizing: border-box;
+            padding: 0%;
+            border: 0px;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDFl_sE1tP4200SJFuYpf2R6rExmYXtvKA",
+            authDomain: "stuff-sharer.firebaseapp.com",
+            databaseURL: "https://stuff-sharer.firebaseio.com",
+            projectId: "stuff-sharer",
+            storageBucket: "stuff-sharer.appspot.com",
+            messagingSenderId: "977001604233"
+        }
+
+        ;
+        firebase.initializeApp(config);
+    </script>
+
+</head>
+
+<body>
+    <textarea id="sticker" type="text"></textarea>
+    <script>
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            window.location = 'https://pythonram.github.io/sticker';
+            // ...
+        }).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
+    </script>
+</body>
+
+
+</html>
