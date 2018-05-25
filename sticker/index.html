@@ -61,7 +61,7 @@
         messageRef.once('value', function (snapshot) {
             document.getElementById('sticker').value = (snapshot.val().message.value);
             document.getElementById('sticker').focus();
-            document.getElementById('sticker').addEventListener("change", update)
+            document.getElementById('sticker').addEventListener("keyup", update)
             initializeApp();
         });
 
