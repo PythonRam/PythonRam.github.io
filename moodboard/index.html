@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moodboard</title>
+</head>
+
+<body>
+    <div class="grid">
+            <img src="assets/random words.svg" alt="Random Words" class="grid-element">        
+        <img src="assets/fantastic negrito.svg" alt="fantastic negrito" class="grid-element">
+
+        <img src="assets/barbara.png" alt="barbara palvin" class="grid-element">
+        <img src="assets/hank.svg" alt="hank moody" class="grid-element">
+
+        <img src="assets/bojack.svg" alt="Bojack Horsemen" class="grid-element">
+        <img src="assets/Bus.svg" alt="manipal bus" class="grid-element">
+        <img src="assets/lighter.svg" alt="lighter love" class="grid-element">
+        <img src="assets/menaing less.svg" alt="star in the sky" class="grid-element">
+        <img src="assets/Royal Enfield with Text.svg" alt="royal Enfield" class="grid-element">
+        <img src="assets/tiny rick.svg" alt="tiny rick" class="grid-element">
+        <img src="assets/Bike for website.svg" alt="Bike for website" class="grid-element">
+
+        <img src="assets/Yellow Umbrella.svg" alt="yellow Umbrella" class="grid-element">
+    </div>
+    <style>
+        body {
+            width: 100%;
+            margin: auto;
+
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+
+        }
+
+        .grid-element {
+            width: 100%;
+            height: auto;
+            overflow-x: hidden;
+        }
+
+        @media only screen and (max-width:600px) and (min-width: 300px) {
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+
+            }
+            .grid-element {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        @media only screen and (max-width:300px) {
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+
+            }
+            .grid-element {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+    </style>
+</body>
+
+</html>
