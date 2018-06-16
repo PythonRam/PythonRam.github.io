@@ -89,6 +89,11 @@ div.breif>p {
     font-weight: bold;
     font-size: 2vw;
     font-weight: 100;
+    color: #999999;
+    cursor: none;
+}
+
+div.breif>p>b {
     color: white;
 }
 
@@ -121,13 +126,13 @@ div.breif>p {
     div.breif {
         margin-top: 5vh;
     }
-    div.breif>h1{
+    div.breif>h1 {
         font-size: 10vw;
     }
-    div.breif>p{
+    div.breif>p {
         font-size: 6vw;
     }
-    div.logo>h1{
+    div.logo>h1 {
         font-size: 5vw;
     }
 }
