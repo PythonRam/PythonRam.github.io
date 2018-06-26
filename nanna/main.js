@@ -41,7 +41,7 @@ module.exports = ".content {\r\n  width: 80%;\r\n  margin: auto;\r\n  margin-top
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content\">\r\n  <div *ngFor=\"let increment of increments; let i= index;\">\r\n    <app-increment *ngIf=\"i === 0\" [initDate]=\"null\" (yearData)=\"yearsData($event,i)\"></app-increment>\r\n    <app-increment *ngIf=\"i !== 0\" [initDate]=\"increments[i-1].final\" (yearData)=\"yearsData($event,i)\"></app-increment>\r\n    <div class=\"line\"></div>\r\n  </div>\r\n\r\n  <div class=\"addIncrement\">\r\n    <button [disabled]=\" increments.length > 0 &&  !increments[increments.length-1].final\" (click)=\"addIncrement()\">Add Year</button>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"content\">\r\n  <div *ngFor=\"let increment of increments; let i= index;\">\r\n    <app-increment *ngIf=\"i === 0\" [initDate]=\"null\" (yearData)=\"yearsData($event,i)\"></app-increment>\r\n    <app-increment *ngIf=\"i !== 0\" [initDate]=\"increments[i-1].final.valueOf()+ 24 * 60 * 60 * 1000\" (yearData)=\"yearsData($event,i)\"></app-increment>\r\n    <div class=\"line\"></div>\r\n  </div>\r\n\r\n  <div class=\"addIncrement\">\r\n    <button [disabled]=\" increments.length > 0 &&  !increments[increments.length-1].final\" (click)=\"addIncrement()\">Add Year</button>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -222,7 +222,7 @@ var IncrementComponent = /** @class */ (function () {
     }
     IncrementComponent.prototype.ngOnChanges = function () {
         if (this.initDate) {
-            this.date_of_joining.setValue(this.initDate);
+            this.date_of_joining.setValue(new Date(this.initDate));
         }
         this.computeMinMax();
     };
